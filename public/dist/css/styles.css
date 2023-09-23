@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap");
+
+/* Color Variables */
+:root {
+    --primary: #36425a;
+    --primaryHover: #0054a6;
+    --secondary: #fbf8f3;
+    --danger: #fa4654;
+    --green: #2fb344;
+    --cyan: #17a2b8;
+}
+
+/* GENERAL */
+* {
+    font-family: "Nunito", sans-serif;
+}
+label {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    line-height: 1rem;
+}
+/* Global Variables */
+.UperCase {
+    text-transform: uppercase !important;
+}
+/*Tables */
+.table_subheader {
+    font-size: 0.75rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    line-height: 1rem;
+}
+/* Borders */
+.border_top_success {
+    border-top: 2px solid var(--green) !important;
+}
+.border_top_danger {
+    border-top: 2px solid var(--danger) !important;
+}
+.border_top_cyan {
+    border-top: 2px solid var(--cyan) !important;
+}
+/* General Buttons */
+.btn-primary {
+    font-size: 0.75rem !important;
+    background-color: var(--primary) !important;
+    transition: 0.4s !important;
+}
+.btn-primary:hover {
+    background-color: var(--primaryHover) !important;
+}
+
+/* DATATABLES */
+.dataTables_length,
+.dataTables_filter,
+.dataTables_info,
+.dataTables_paginate {
+    padding: 15px !important;
+}
+/* Datatables Pagination Buttons */
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    border-radius: 4px !important;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    line-height: 1rem;
+}
+.paginate_button.current {
+    background-color: var(--primary) !important;
+    transition: 0.4s;
+}
+.paginate_button.current:hover {
+    background-color: var(--primaryHover) !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate {
+    color: var(--secondary) !important;
+}
+
+/* DAILY CASHIERS */
