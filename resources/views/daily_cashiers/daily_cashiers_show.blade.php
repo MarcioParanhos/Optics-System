@@ -133,8 +133,8 @@
                                     </td>
                                     <td class="text-center">R$ 500,00</td>
                                     <td class="text-center">
-                                        <a title="Editar" href="" class="btn btn-primary btn-sm rounded p-1"><i class="fa-solid fa-pen-to-square"></i></a>
-                                        <a title="Excluir" href="" class="btn btn-danger btn-sm rounded p-1"><i class="fa-solid fa-trash"></i></a>
+                                        <a title="Editar" data-bs-toggle="tooltip" href="" class="btn btn-primary btn-sm rounded p-1"><i class="fa-solid fa-pen-to-square"></i></a>
+                                        <a title="Excluir" data-bs-toggle="tooltip" class="btn btn-danger btn-sm rounded p-1" data-bs-toggle="modal" data-bs-target="#delete_modal_daily_cashiers"><i class="fa-solid fa-trash"></i></a>
                                     </td>
                                 </tr>
                                 <tr class="table_subheader">
@@ -151,7 +151,7 @@
                                     <td class="text-center">R$ 125,00</td>
                                     <td class="text-center">
                                         <a title="Editar" href="" class="btn btn-primary btn-sm rounded p-1"><i class="fa-solid fa-pen-to-square"></i></a>
-                                        <a title="Excluir" href="" class="btn btn-danger btn-sm rounded p-1"><i class="fa-solid fa-trash"></i></a>
+                                        <a title="Excluir" class="btn btn-danger btn-sm rounded p-1" data-bs-toggle="modal" data-bs-target="#delete_modal_daily_cashiers"><i class="fa-solid fa-trash"></i></a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -167,13 +167,13 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title UperCase">Novo Movimento</h5>
+                <h5 class="modal-title UperCase">Novo Lançamento</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="mb-3">
                     <label class="form-label">Descrição</label>
-                    <input type="text" class="form-control" name="example-text-input" placeholder="Your report name">
+                    <input type="text" class="form-control" name="example-text-input" placeholder="IMFORME A DESCRIÇÃO DO LANÇAMENTO">
                 </div>
                 <label class="form-label">Tipo de Movimento</label>
                 <div class="form-selectgroup-boxes row mb-3">
@@ -219,12 +219,10 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="mb-3">
-                            <label class="form-label">Report url</label>
-                            <div class="input-group input-group-flat">
-                                <span class="input-group-text">
-                                    https://tabler.io/reports/
-                                </span>
-                                <input type="text" class="form-control ps-0" value="report-01" autocomplete="off">
+                            <label class="form-label">Valor da movimentação</label>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text">R$</span>
+                                <input type="text" class="form-control" placeholder="" autocomplete="off">
                             </div>
                         </div>
                     </div>
@@ -244,19 +242,19 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="mb-3">
-                            <label class="form-label">Client name</label>
-                            <input type="text" class="form-control">
+                            <label class="form-label">Usuário</label>
+                            <input value="Marcio Paranhos" type="text" class="form-control" readonly>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="mb-3">
-                            <label class="form-label">Reporting period</label>
+                            <label class="form-label">Data</label>
                             <input type="date" class="form-control">
                         </div>
                     </div>
                     <div class="col-lg-12">
                         <div>
-                            <label class="form-label">Additional information</label>
+                            <label class="form-label">Informações Adicionais</label>
                             <textarea class="form-control" rows="3"></textarea>
                         </div>
                     </div>
@@ -264,7 +262,7 @@
             </div>
             <div class="modal-footer">
                 <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
-                    Cancel
+                    <span class="text-danger">CANCELAR</span>
                 </a>
                 <a href="#" class="btn btn-primary ms-auto" data-bs-dismiss="modal">
                     <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
@@ -273,8 +271,48 @@
                         <path d="M12 5l0 14" />
                         <path d="M5 12l14 0" />
                     </svg>
-                    NOVA VENDA
+                    NOVO LANÇAMENTO
                 </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Delete Modal -->
+<div class="modal modal-blur fade" id="delete_modal_daily_cashiers" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-status bg-danger"></div>
+            <div class="modal-body text-center py-4">
+                <!-- Download SVG icon from http://tabler-icons.io/i/alert-triangle -->
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon mb-2 text-danger icon-lg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M4 7h16"></path>
+                    <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+                    <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+                    <path d="M10 12l4 4m0 -4l-4 4"></path>
+                </svg>
+                <h3 class="subheader">Deseja excluir ?</h3>
+                <div class="subheader text-muted">Atenção! O registro será excluido permanentemente.</div>
+            </div>
+            <div class="modal-footer">
+                <div class="w-100">
+                    <div class="row">
+                        <div class="col"><a href="#" class="subheader btn w-100" data-bs-dismiss="modal">Cancelar</a></div>
+                        <!-- <div class="col"><a href="/logout" class="btn btn-danger w-100">Sair</a></div> -->
+                        <div class="col">
+                            <form action="/logout" method="POST">
+                                @csrf
+                                <a href="/logout" class="btn btn-danger w-100" onclick="event.preventDefault();
+                                            this.closest('form').submit();">
+                                    <i class="ti-power-off text-primary"></i>
+                                    <span class="subheader text-white">Excluir</span>
+                                </a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

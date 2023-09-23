@@ -57,14 +57,14 @@
                             </div>
                         </div> -->
                         <div class="d-none d-md-flex">
-                            <a href="?theme=dark" class="nav-link px-0 hide-theme-dark" title="Enable dark mode" data-bs-toggle="tooltip" data-bs-placement="bottom">
+                            <a href="?theme=dark" class="nav-link px-0 hide-theme-dark" title="Ativar modo escuro" data-bs-toggle="tooltip" data-bs-placement="bottom">
                                 <!-- Download SVG icon from http://tabler-icons.io/i/moon -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                     <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
                                 </svg>
                             </a>
-                            <a href="?theme=light" class="nav-link px-0 hide-theme-light" title="Enable light mode" data-bs-toggle="tooltip" data-bs-placement="bottom">
+                            <a href="?theme=light" class="nav-link px-0 hide-theme-light" title="Ativar modo claro" data-bs-toggle="tooltip" data-bs-placement="bottom">
                                 <!-- Download SVG icon from http://tabler-icons.io/i/sun -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -177,16 +177,16 @@
                             <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
                                 <span class="avatar avatar-sm" style="background-image: url(./static/avatars/000m.jpg)"></span>
                                 <div class="d-none d-xl-block ps-2">
-                                    <div>{{ $loggedInUser->name }}</div>
+                                    <div class="subheader">{{ $loggedInUser->name }}</div>
                                     <div class="mt-1 small text-muted">{{ $loggedInUser->profile->profile }}</div>
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                <a href="#" class="dropdown-item">Status</a>
-                                <a href="./profile.html" class="dropdown-item">Profile</a>
+                                <a href="#" class="subheader dropdown-item">Status</a>
+                                <a href="./profile.html" class="subheader dropdown-item">Perfil</a>
                                 <div class="dropdown-divider"></div>
-                                <a href="./settings.html" class="dropdown-item">Settings</a>
-                                <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modal-danger">Logout</a>
+                                <a href="./settings.html" class="subheader dropdown-item">Configurações</a>
+                                <a href="#" class="subheader dropdown-item" data-bs-toggle="modal" data-bs-target="#modal-danger">Logout</a>
                             </div>
                         </div>
                     </div>
@@ -299,10 +299,17 @@
                                 <li id="activeBrand" class="nav-item  dropdown">
                                     <a class="nav-link dropdown-toggle" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false">
                                         <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/layout-2 -->
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-settings" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-adjustments" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                <path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z"></path>
-                                                <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path>
+                                                <path d="M4 10a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+                                                <path d="M6 4v4"></path>
+                                                <path d="M6 12v8"></path>
+                                                <path d="M10 16a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+                                                <path d="M12 4v10"></path>
+                                                <path d="M12 18v2"></path>
+                                                <path d="M16 7a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+                                                <path d="M18 4v1"></path>
+                                                <path d="M18 9v11"></path>
                                             </svg>
                                         </span>
                                         <span class="nav-link-title subheader">Gerencial</span>
@@ -368,6 +375,32 @@
                                         </div>
                                     </div>
                                 </li>
+                                <li id="activeBrand" class="nav-item  dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false">
+                                        <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/layout-2 -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-settings-cog" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                <path d="M12.003 21c-.732 .001 -1.465 -.438 -1.678 -1.317a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c.886 .215 1.325 .957 1.318 1.694"></path>
+                                                <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path>
+                                                <path d="M19.001 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+                                                <path d="M19.001 15.5v1.5"></path>
+                                                <path d="M19.001 21v1.5"></path>
+                                                <path d="M22.032 17.25l-1.299 .75"></path>
+                                                <path d="M17.27 20l-1.3 .75"></path>
+                                                <path d="M15.97 17.25l1.3 .75"></path>
+                                                <path d="M20.733 20l1.3 .75"></path>
+                                            </svg>
+                                        </span>
+                                        <span class="nav-link-title subheader">Administração</span>
+                                    </a>
+                                    <div class="dropdown-menu">
+                                        <div class="dropdown-menu-columns">
+                                            <div class="dropdown-menu-column">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
                             </ul>
                             <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
                                 <form action="./" method="get" autocomplete="off" novalidate>
@@ -398,9 +431,8 @@
                     <div class="row text-center align-items-center flex-row-reverse">
                         <div class="col-lg-auto ms-lg-auto">
                             <ul class="list-inline list-inline-dots mb-0">
-                                <!-- <li class="list-inline-item"><a href="https://tabler.io/docs" target="_blank" class="link-secondary" rel="noopener">Documentation</a></li> -->
                                 <li class="list-inline-item">
-                                    <a href="#" target="_blank" class="link-secondary" rel="noopener">
+                                    <a href="https://github.com/MarcioParanhos" target="_blank" class="link-secondary" rel="noopener">
                                         Developed by Marcio Paranhos
                                     </a>
                                 </li>
@@ -414,9 +446,7 @@
                                     Todos os direitos reservados.
                                 </li>
                                 <li class="list-inline-item">
-                                    <a href="./changelog.html" class="link-secondary" rel="noopener">
-                                        v1.0.0
-                                    </a>
+                                    <a href="#" class="link-secondary" rel="noopener">v1.0.0</a>
                                 </li>
                             </ul>
                         </div>
@@ -546,13 +576,13 @@
                         <path d="M12 9v4" />
                         <path d="M12 17h.01" />
                     </svg>
-                    <h3>Deseja Sair?</h3>
-                    <div class="text-muted">Ao sair do sistema todas as suas atividades serão encerradas!</div>
+                    <h3 class="subheader">Deseja Sair?</h3>
+                    <div class="subheader text-muted">Todas as suas atividades serão encerradas!</div>
                 </div>
                 <div class="modal-footer">
                     <div class="w-100">
                         <div class="row">
-                            <div class="col"><a href="#" class="btn w-100" data-bs-dismiss="modal">Cancel</a></div>
+                            <div class="col"><a href="#" class="subheader btn w-100" data-bs-dismiss="modal">Cancelar</a></div>
                             <!-- <div class="col"><a href="/logout" class="btn btn-info w-100">Sair</a></div> -->
                             <div class="col">
                                 <form action="/logout" method="POST">
@@ -560,7 +590,7 @@
                                     <a href="/logout" class="btn btn-info w-100" onclick="event.preventDefault();
                                             this.closest('form').submit();">
                                         <i class="ti-power-off text-primary"></i>
-                                        Sair
+                                        <span class="subheader text-white">Sair</span>
                                     </a>
                                 </form>
                             </div>

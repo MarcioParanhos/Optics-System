@@ -93,7 +93,7 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <label class="form-label" for="brand">MARCA</label>
-                        <input id="brand" name="brand" type="text" class="form-control" name="example-text-input" placeholder="Informe o nome da marca" required>
+                        <input id="brand" name="brand" type="text" class="form-control" name="example-text-input" placeholder="INFORME O NOME DA MARCA" required>
                     </div>
                     <label class="form-label">CATEGORIA</label>
                     <div class="form-selectgroup-boxes row mb-3">
@@ -211,18 +211,21 @@
             <div class="modal-status bg-danger"></div>
             <div class="modal-body text-center py-4">
                 <!-- Download SVG icon from http://tabler-icons.io/i/alert-triangle -->
+
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon mb-2 text-danger icon-lg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                    <path d="M20 6a1 1 0 0 1 .117 1.993l-.117 .007h-.081l-.919 11a3 3 0 0 1 -2.824 2.995l-.176 .005h-8c-1.598 0 -2.904 -1.249 -2.992 -2.75l-.005 -.167l-.923 -11.083h-.08a1 1 0 0 1 -.117 -1.993l.117 -.007h16z" stroke-width="0" fill="currentColor"></path>
-                    <path d="M14 2a2 2 0 0 1 2 2a1 1 0 0 1 -1.993 .117l-.007 -.117h-4l-.007 .117a1 1 0 0 1 -1.993 -.117a2 2 0 0 1 1.85 -1.995l.15 -.005h4z" stroke-width="0" fill="currentColor"></path>
+                    <path d="M4 7h16"></path>
+                    <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+                    <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+                    <path d="M10 12l4 4m0 -4l-4 4"></path>
                 </svg>
-                <h3 class="UperCase">Deseja excluir ?</h3>
-                <div class="text-muted">Atenção! O registro será excluido permanentemente.</div>
+                <h3 class="subheader">Deseja excluir ?</h3>
+                <div class="subheader text-muted">Atenção! O registro será excluido permanentemente.</div>
             </div>
             <div class="modal-footer">
                 <div class="w-100">
                     <div class="row">
-                        <div class="col"><a href="#" class="btn w-100" data-bs-dismiss="modal">Cancel</a></div>
+                        <div class="col"><a href="#" class="subheader btn w-100" data-bs-dismiss="modal">Cancelar</a></div>
                         <!-- <div class="col"><a href="/logout" class="btn btn-danger w-100">Sair</a></div> -->
                         <div class="col">
                             <form action="/logout" method="POST">
@@ -230,7 +233,7 @@
                                 <a href="/logout" class="btn btn-danger w-100" onclick="event.preventDefault();
                                             this.closest('form').submit();">
                                     <i class="ti-power-off text-primary"></i>
-                                    Excluir
+                                    <span class="subheader text-white">Excluir</span>
                                 </a>
                             </form>
                         </div>
