@@ -221,7 +221,7 @@
                                                 <path d="M20 12v4h-4a2 2 0 0 1 0 -4h4"></path>
                                             </svg>
                                         </span>
-                                        <span class="nav-link-title subheader">Caixa Diario</span>
+                                        <span class="nav-link-title subheader">Caixa Diário</span>
                                     </a>
                                 </li>
                                 <li id="activeFrame" class="nav-item dropdown">
@@ -310,8 +310,27 @@
                                     <div class="dropdown-menu">
                                         <div class="dropdown-menu-columns">
                                             <div class="dropdown-menu-column">
-                                                <a class="dropdown-item" href="#">Lentes</a>
-                                                <a class="dropdown-item" href="#">Colaboradores</a>
+                                                <a class="dropdown-item" href="#">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-currency" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                        <path d="M12 12m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
+                                                        <path d="M4 4l3 3"></path>
+                                                        <path d="M20 4l-3 3"></path>
+                                                        <path d="M4 20l3 -3"></path>
+                                                        <path d="M20 20l-3 -3"></path>
+                                                    </svg>
+                                                    <span class="m-1 subheader">Lentes</span>
+                                                </a>
+                                                <a class="dropdown-item" href="#">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                        <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+                                                        <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                                        <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
+                                                    </svg>
+                                                    <span class="m-1 subheader">Colaboradores</span>
+                                                </a>
                                                 <a class="dropdown-item" href="{{ route('brands.show') }}">
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-category" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -344,7 +363,7 @@
                                     <div class="dropdown-menu">
                                         <div class="dropdown-menu-columns">
                                             <div class="dropdown-menu-column">
-                                                
+
                                             </div>
                                         </div>
                                     </div>
