@@ -52,12 +52,16 @@ class BrandController extends Controller
     }
 
     public function select($id) {
+
         $brand = Brand::find($id);
         return response()->json(['brand' => $brand]);
+        
     }
 
-    public function update ($id) {
+    public function update (Request $request) {
+
+        Brand::findOrFail($request->id)->update($request->all());
+        return  redirect()->to(url()->previous())->with('msg', 'updated');
 
     }
-    
 }

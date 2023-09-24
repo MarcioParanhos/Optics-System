@@ -28,7 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/brands/create', [BrandController::class, 'create'])->name('brands.create');
     Route::get('/brands/destroy/{id}', [BrandController::class, 'destroy'])->name('brands.destroy');
     Route::get('/brands/select/{id}', [BrandController::class, 'select'])->name('brands.select');
-    Route::post('/brands/update/{id}', [BrandController::class, 'update'])->name('brands.update');
+    Route::post('/brands/update', [BrandController::class, 'update'])->name('brands.update');
     // Daily cashiers
     Route::get('/daily_cashiers', [DailyCashierController::class, 'index'])->name('daily_cashiers.show');
 

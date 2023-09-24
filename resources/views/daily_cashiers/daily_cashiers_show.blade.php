@@ -115,7 +115,7 @@
                         <h6 class="card-title UperCase">Movimento Diário</h6>
                     </div>
                     <div class="table-responsive shadow">
-                        <table id="table" class="table card-table table-vcenter text-nowrap table-hover">
+                        <table id="table" class="table table-sm card-table table-vcenter text-nowrap table-hover">
                             <thead>
                                 <tr>
                                     <th class="text-center">ID</th>
@@ -180,7 +180,7 @@
             <div class="modal-body">
                 <div class="mb-3">
                     <label class="form-label">Descrição</label>
-                    <input type="text" class="form-control" name="example-text-input" placeholder="IMFORME A DESCRIÇÃO DO LANÇAMENTO">
+                    <input type="text" class="form-control" name="example-text-input" placeholder="IMFORME A DESCRIÇÃO DO MOVIMENTO">
                 </div>
                 <label class="form-label">Tipo de Movimento</label>
                 <div class="form-selectgroup-boxes row mb-3">

@@ -970,7 +970,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // @formatter:on
 
-// Function Destroy
+// Destroy Function
 function destroy(id, type) {
     if (type == "brand") {
         let link = "/brands/destroy/" + id; // Cria o link dinamicamente
@@ -982,37 +982,30 @@ function destroy(id, type) {
         modal.show();
     }
 }
-// Function Update
+// Update Function
 function update(id, type) {
     if (type == "brand") {
-        link = "/brands/update/" + id;
+        link = "/brands/update";
         // Fazer uma solicitação AJAX para buscar a marca selecionada
         fetch(`/brands/select/${id}`)
             .then((response) => response.json())
             .then((data) => {
                 // Exibir a marca no modal
-                let modal = new bootstrap.Modal(
-                    document.getElementById("update_modal_brand")
-                );
-                let modal_update_brand_name = document.getElementById(
-                    "modal_update_brand_name"
-                );
+                let modal = new bootstrap.Modal(document.getElementById("update_modal_brand"));
+                let modal_update_brand_name = document.getElementById("modal_update_brand_name");
                 let brand_upate = document.getElementById("brand_upate");
-                let update_release_date = document.getElementById(
-                    "update_release_date"
-                );
-                let update_additional_information = document.getElementById(
-                    "update_additional_information"
-                );
+                let update_release_date = document.getElementById("update_release_date");
+                let update_additional_information = document.getElementById("update_additional_information");
+                let update_brand_id = document.getElementById("update_brand_id");
                 modal_update_brand_name.innerHTML = ` ${data.brand.brand}`;
                 brand_upate.value = ` ${data.brand.brand}`;
-                update_additional_information.innerHTML =
-                    data.brand.additional_information;
+                update_brand_id.value = data.brand.id;
+                update_additional_information.innerHTML = data.brand.additional_information;
                 update_release_date.value = data.brand.release_date;
 
                 // Obtem todos os elementos de radio buttons com o name "category"
                 let radioButtons = document.getElementsByName("category");
-                // Percorra os elementos de radio buttons
+                // Percorre os elementos de radio buttons
                 for (let i = 0; i < radioButtons.length; i++) {
                     // Verifica se o valor do radio button corresponde à categoria da marca
                     if (radioButtons[i].value === data.brand.category) {
@@ -1028,6 +1021,7 @@ function update(id, type) {
             })
             .catch((error) => {
                 console.error("Erro ao buscar a marca: " + error);
-            });
+            }
+        );
     }
 }

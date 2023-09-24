@@ -19,7 +19,6 @@
             <div class="col-auto ms-auto d-print-none">
                 <div class="btn-list">
                     <a href="#" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal" data-bs-target="#new_brand_modal">
-                        <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                             <path d="M12 5l0 14" />
@@ -28,7 +27,6 @@
                         ADICIONAR MARCA
                     </a>
                     <a href="#" class="btn btn-primary d-sm-none btn-icon" data-bs-toggle="modal" data-bs-target="#new_brand_modal" aria-label="Create new report">
-                        <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                             <path d="M12 5l0 14" />
@@ -55,7 +53,7 @@
                                 <th class="text-center">ARMAÇÕES NO ESTOQUE</th>
                                 <th class="text-center">SITUAÇÃO</th>
                                 <th class="text-center">DATA DE LANÇAMENTO</th>
-                                <th class="text-center">AÇÃO</th>
+                                <th class="text-center"></th>
                             </tr>
                         </thead>
                         <tbody class="table-tbody">
@@ -68,11 +66,10 @@
                                 <td class="text-center"><span class="badge bg-green">{{ $brand->situation }}</span></td>
                                 <td class="text-center">{{ \Carbon\Carbon::parse($brand->release_date)->format('d/m/Y') }}</td>
                                 <td class="text-center">
-                                    <!-- <a title="Editar" href="" class="btn btn-primary btn-sm rounded p-1"><i class="fa-solid fa-pen-to-square"></i></a> -->
-                                    <a title="Editar" class="btn btn-primary btn-sm rounded p-1" onclick="update('<?php echo $brand->id; ?>', 'brand')">
+                                    <a title="Editar" data-bs-toggle="tooltip" class="btn btn-primary btn-sm rounded p-1" onclick="update('<?php echo $brand->id; ?>', 'brand')">
                                         <i class="fa-solid fa-pen-to-square"></i>
                                     </a>
-                                    <a title="Excluir" class="btn btn-danger btn-sm rounded p-1" onclick="destroy('<?php echo $brand->id; ?>', 'brand')">
+                                    <a title="Excluir" data-bs-toggle="tooltip" class="btn btn-danger btn-sm rounded p-1" onclick="destroy('<?php echo $brand->id; ?>', 'brand')">
                                         <i class="fa-solid fa-trash"></i>
                                     </a>
                                 </td>
@@ -85,7 +82,7 @@
         </div>
     </div>
 </div>
-<!-- Update Moral Brand -->
+<!-- Update Modal Brand-->
 <div class="modal modal-blur fade" id="update_modal_brand" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -94,11 +91,12 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form id="update_form" method="POST">
+                <input id="update_brand_id" name="id" type="number" class="form-control" hidden>
                 @csrf
                 <div class="modal-body">
                     <div class="mb-3">
                         <label class="form-label" for="brand">MARCA</label>
-                        <input id="brand_upate" name="brand" type="text" class="form-control" name="example-text-input" placeholder="INFORME O NOME DA MARCA" required>
+                        <input id="brand_upate" name="brand" type="text" class="form-control" placeholder="INFORME O NOME DA MARCA" required>
                     </div>
                     <label class="form-label">CATEGORIA</label>
                     <div class="form-selectgroup-boxes row mb-3">
@@ -221,7 +219,7 @@
         </div>
     </div>
 </div>
-<!-- Modal de Nova Marca -->
+<!-- New Modal Brand -->
 <div class="modal modal-blur fade" id="new_brand_modal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -409,43 +407,35 @@
     document.addEventListener("DOMContentLoaded", function() {
         const session_message = document.getElementById("session_message");
 
+        function showToast(icon, title) {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3500,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+
+            Toast.fire({
+                icon: icon,
+                title: title
+            })
+        }
+
         if (session_message) {
             if (session_message.value === "deleted") {
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    timer: 3000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                        toast.addEventListener('mouseenter', Swal.stopTimer)
-                        toast.addEventListener('mouseleave', Swal.resumeTimer)
-                    }
-                })
-
-                Toast.fire({
-                    icon: 'success',
-                    title: 'Marca excluida com sucesso!'
-                })
+                showToast('success', 'Marca excluída com sucesso!');
             } else if (session_message.value === "success") {
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    timer: 3000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                        toast.addEventListener('mouseenter', Swal.stopTimer)
-                        toast.addEventListener('mouseleave', Swal.resumeTimer)
-                    }
-                })
-
-                Toast.fire({
-                    icon: 'success',
-                    title: 'Marca adicionada com sucesso!'
-                })
+                showToast('success', 'Marca adicionada com sucesso!');
+            } else if (session_message.value === "updated") {
+                showToast('success', 'Marca atualizada com sucesso!');
             }
         }
+
     });
 </script>
 @endsection
