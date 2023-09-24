@@ -63,7 +63,11 @@
                                 <td class="text-center">{{ $brand->brand }}</td>
                                 <td class="text-center">{{ $brand->category }}</td>
                                 <td class="text-center"><span class="badge bg-teal">25</span></td>
-                                <td class="text-center"><span class="badge bg-green">{{ $brand->situation }}</span></td>
+                                @if ( $brand->situation == 'Ativo')
+                                <td class="text-center"><span class="badge bg-green">Ativo</span></td>
+                                @else
+                                <td class="text-center"><span class="badge bg-danger">Inativo</span></td>
+                                @endif
                                 <td class="text-center">{{ \Carbon\Carbon::parse($brand->release_date)->format('d/m/Y') }}</td>
                                 <td class="text-center">
                                     <a title="Editar" data-bs-toggle="tooltip" class="btn btn-primary btn-sm rounded p-1" onclick="update('<?php echo $brand->id; ?>', 'brand')">

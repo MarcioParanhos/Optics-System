@@ -59,23 +59,13 @@ label {
     padding: 15px !important;
 }
 /* Datatables Pagination Buttons */
+
 .dataTables_wrapper .dataTables_paginate .paginate_button {
     border-radius: 4px !important;
     font-size: 0.6rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
     line-height: 1rem;
-}
-.paginate_button.current {
-    background-color: var(--primary) !important;
-    transition: 0.4s;
-}
-.paginate_button.current:hover {
-    background-color: var(--primaryHover) !important;
-}
-.dataTables_wrapper .dataTables_paginate .paginate_button.current,
-.dataTables_wrapper .dataTables_paginate {
-    color: var(--secondary) !important;
 }
 
 /* DAILY CASHIERS */
