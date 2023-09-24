@@ -21,12 +21,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    //Frame
+    //Frames
     Route::get('/frames', [FrameController::class, 'index'])->name('frames.show');
-    //Brand
+    //Brands
     Route::get('/brands', [BrandController::class, 'index'])->name('brands.show');
     Route::post('/brands/create', [BrandController::class, 'create'])->name('brands.create');
-    // Daily cashier
+    Route::get('/brands/destroy/{id}', [BrandController::class, 'destroy'])->name('brands.destroy');
+    Route::get('/brands/select/{id}', [BrandController::class, 'select'])->name('brands.select');
+    Route::post('/brands/update/{id}', [BrandController::class, 'update'])->name('brands.update');
+    // Daily cashiers
     Route::get('/daily_cashiers', [DailyCashierController::class, 'index'])->name('daily_cashiers.show');
 
 });

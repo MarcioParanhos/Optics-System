@@ -33,6 +33,31 @@ class BrandController extends Controller
         $brand->company = $loggedInUser->profile->company;
         $brand->save();
         return  redirect()->to(url()->previous())->with('msg', 'success');
+    }
+
+    public function destroy($id)
+    {
+        try {
+
+            $brand = Brand::findOrFail($id); // Encontra o registro com o ID especificado
+            if ($brand) {
+                $brand->delete();
+                return  redirect()->to(url()->previous())->with('msg', 'deleted');
+            } else {
+                return redirect()->route('brands.show')->with('error');
+            }
+        } catch (\Exception $e) {
+            return redirect()->route('brands.show')->with('error', 'Ocorreu um erro ao excluir o Brand: ' . $e->getMessage());
+        }
+    }
+
+    public function select($id) {
+        $brand = Brand::find($id);
+        return response()->json(['brand' => $brand]);
+    }
+
+    public function update ($id) {
 
     }
+    
 }

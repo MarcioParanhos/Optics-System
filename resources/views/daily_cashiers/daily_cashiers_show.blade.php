@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Optics System - Caixa Diario')
+@section('title', 'Optics System - Caixa Diário')
 
 @section('content')
 <!-- Page header -->
@@ -17,9 +17,16 @@
                 </h2>
             </div>
             <!-- Page title actions -->
+            <!-- <div class="container">
+                <div class="btn-list d-flex justify-content-end">
+                    <a id="btn_open_cashier" class="btn btn-green d-sm-inline-block">
+                        ABRIR CAIXA
+                    </a>
+                </div>
+            </div> -->
             <div class="col-auto ms-auto d-print-none">
                 <div class="btn-list">
-                    <a href="#" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal" data-bs-target="#new_moviment_modal">
+                    <a id="btn_cashier" href="#" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal" data-bs-target="#new_moviment_modal">
                         <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -44,7 +51,7 @@
 <!-- Page body -->
 <div class="page-body">
     <div class="container-xl">
-        <div class="row row-deck row-cards">
+        <div id="daily_cashier" class="row row-deck row-cards ">
             <div class="col-sm-6 col-lg-4">
                 <div class="border_top_success card card-link card-link-pop shadow">
                     <div class="card-body">
@@ -59,7 +66,7 @@
                             <div class="text-green subheader">ENTRADA</div>
                         </div>
                         <div class="d-flex align-items-baseline">
-                            <div class="h1 mb-3 me-2 text-green">R$ 1.200</div>
+                            <div class="h1 mb-3 me-2 text-green">R$ 0</div>
                         </div>
                     </div>
                 </div>
@@ -78,7 +85,7 @@
                             <div class="text-danger subheader">SAÍDA</div>
                         </div>
                         <div class="d-flex align-items-baseline">
-                            <div class="h1 mb-3 me-2 text-danger">R$ 1.200</div>
+                            <div class="h1 mb-3 me-2 text-danger">R$ 0</div>
                         </div>
                     </div>
                 </div>
@@ -97,7 +104,7 @@
                             <div class="text-cyan subheader">SALDO</div>
                         </div>
                         <div class="d-flex align-items-baseline">
-                            <div class="h1 mb-3 me-2 text-cyan">R$ 1.200</div>
+                            <div class="h1 mb-3 me-2 text-cyan">R$ 0</div>
                         </div>
                     </div>
                 </div>
@@ -123,7 +130,7 @@
                                 <tr class="table_subheader">
                                     <td class="text-center"><span class="text-muted">002</span></td>
                                     <td class="text-center">22/09/2023</td>
-                                    <td class="text-center">RECEBIMENTO DE PARCELA (Cristina Araujo)</td>
+                                    <td class="text-center">ABERTURA DE CAIXA</td>
                                     <td class="text-center">
                                         <span class="text-green"><strong>ENTRADA</strong></span>
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-caret-up-filled" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
