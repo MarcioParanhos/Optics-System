@@ -59,7 +59,6 @@ label {
     padding: 15px !important;
 }
 /* Datatables Pagination Buttons */
-
 .dataTables_wrapper .dataTables_paginate .paginate_button {
     border-radius: 4px !important;
     font-size: 0.6rem;

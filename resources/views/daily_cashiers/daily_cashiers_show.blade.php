@@ -10,7 +10,7 @@
             <div class="col">
                 <!-- Page pre-title -->
                 <div class="page-pretitle">
-                    22/09/2023
+                    <?php echo date('d/m/Y'); ?>
                 </div>
                 <h2 class="page-title UperCase">
                     CAIXA DIÁRIO
