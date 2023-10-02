@@ -259,11 +259,11 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="mb-3">
-                            <label class="form-label">Visibility</label>
+                            <label class="form-label">Visibilidade</label>
                             <select class="form-select">
-                                <option value="1" selected>Private</option>
-                                <option value="2">Public</option>
-                                <option value="3">Hidden</option>
+                                <option value="" selected>Selecione...</option>
+                                <option value="2">Publico</option>
+                                <option value="3">Privado</option>
                             </select>
                         </div>
                     </div>

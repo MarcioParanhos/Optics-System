@@ -15,7 +15,7 @@
             <div class="col-auto ms-auto d-print-none">
                 <div class="btn-list">
                     <div class="d-flex justify-content-end">
-                        <a href="#" title="Informações Adicionais" class="btn information_btn" data-bs-toggle="modal" data-bs-target="#information_modal">
+                        <a href="#" title="Informações Adicionais" class="btn btn-md" data-bs-toggle="modal" data-bs-target="#information_modal">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-question-mark" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                 <path d="M8 8a3.5 3 0 0 1 3.5 -3h1a3.5 3 0 0 1 3.5 3a3 3 0 0 1 -2 3a3 4 0 0 0 -2 4"></path>
@@ -116,7 +116,7 @@
     </div>
 </div>
 
-<!-- Modal de Nova Marca -->
+<!-- New Frames Modal -->
 <div class="modal modal-blur fade" id="new_frame_modal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -127,64 +127,23 @@
             <form action="{{ route('brands.create') }}" method="POST">
                 @csrf
                 <div class="modal-body">
-                    <div class="mb-3">
-                        <label class="form-label" for="brand">MARCA</label>
-                        <input id="brand" name="brand" type="text" class="form-control" name="example-text-input" placeholder="Informe o nome da marca" required>
-                    </div>
-                    <label class="form-label">CATEGORIA</label>
-                    <div class="form-selectgroup-boxes row mb-3">
-                        <div class="col-lg-4">
-                            <label class="form-selectgroup-item">
-                                <input type="radio" name="masculine_category" value="Masculino" class="form-selectgroup-input">
-                                <span class="form-selectgroup-label d-flex align-items-center p-3">
-                                    <span class="me-3">
-                                        <span class="form-selectgroup-check"></span>
-                                    </span>
-                                    <span class="form-selectgroup-label-content">
-                                        <span class="form-selectgroup-title strong mb-1">Masculino</span>
-                                        <span class="d-block text-muted"></span>
-                                    </span>
-                                </span>
-                            </label>
+                    <div class="row">
+                        <div class="mb-3 col-lg-6">
+                            <label class="form-label" for="brand">MARCA</label>
+                            <input id="brand" name="brand" type="text" class="form-control" name="example-text-input" placeholder="Informe o nome da marca" required>
                         </div>
-                        <div class="col-lg-4">
-                            <label class="form-selectgroup-item">
-                                <input type="radio" name="feminine_category" value="Feminino" class="form-selectgroup-input">
-                                <span class="form-selectgroup-label d-flex align-items-center p-3">
-                                    <span class="me-3">
-                                        <span class="form-selectgroup-check"></span>
-                                    </span>
-                                    <span class="form-selectgroup-label-content">
-                                        <span class="form-selectgroup-title strong mb-1">Feminino</span>
-                                        <span class="d-block text-muted"></span>
-                                    </span>
-                                </span>
-                            </label>
-                        </div>
-                        <div class="col-lg-4">
-                            <label class="form-selectgroup-item">
-                                <input type="radio" name="unissex_category" value="Unissex" class="form-selectgroup-input">
-                                <span class="form-selectgroup-label d-flex align-items-center p-3">
-                                    <span class="me-3">
-                                        <span class="form-selectgroup-check"></span>
-                                    </span>
-                                    <span class="form-selectgroup-label-content">
-                                        <span class="form-selectgroup-title strong mb-1">Unissex</span>
-                                        <span class="d-block text-muted"></span>
-                                    </span>
-                                </span>
-                            </label>
+                        <div class="mb-3 col-lg-6">
+                            <label class="form-label" for="brand">REFERÊNCIA</label>
+                            <input id="brand" name="brand" type="text" class="form-control" name="example-text-input" placeholder="Informe o nome da marca" required>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-8">
+                        <div class="col-lg-4">
                             <div class="mb-3">
-                                <label class="form-label">Report url</label>
-                                <div class="input-group input-group-flat">
-                                    <span class="input-group-text">
-                                        https://tabler.io/reports/
-                                    </span>
-                                    <input type="text" class="form-control ps-0" value="report-01" autocomplete="off">
+                                <label class="form-label">Valor da armação</label>
+                                <div class="input-group mb-2">
+                                    <span class="input-group-text">R$</span>
+                                    <input type="text" class="form-control" placeholder="" autocomplete="off">
                                 </div>
                             </div>
                         </div>

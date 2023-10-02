@@ -65,10 +65,11 @@ return [
 
         'daily' => [
             'driver' => 'daily',
-            'path' => storage_path('logs/laravel.log'),
-            'level' => env('LOG_LEVEL', 'debug'),
+            'path' => 'E:\Projetos\Projetos Laravel\logslaravel.log',
+            'level' => 'debug',
             'days' => 14,
         ],
+        
 
         'slack' => [
             'driver' => 'slack',
