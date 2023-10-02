@@ -991,16 +991,26 @@ function update(id, type) {
             .then((response) => response.json())
             .then((data) => {
                 // Exibir a marca no modal
-                let modal = new bootstrap.Modal(document.getElementById("update_modal_brand"));
-                let modal_update_brand_name = document.getElementById("modal_update_brand_name");
+                let modal = new bootstrap.Modal(
+                    document.getElementById("update_modal_brand")
+                );
+                let modal_update_brand_name = document.getElementById(
+                    "modal_update_brand_name"
+                );
                 let brand_upate = document.getElementById("brand_upate");
-                let update_release_date = document.getElementById("update_release_date");
-                let update_additional_information = document.getElementById("update_additional_information");
-                let update_brand_id = document.getElementById("update_brand_id");
+                let update_release_date = document.getElementById(
+                    "update_release_date"
+                );
+                let update_additional_information = document.getElementById(
+                    "update_additional_information"
+                );
+                let update_brand_id =
+                    document.getElementById("update_brand_id");
                 modal_update_brand_name.innerHTML = ` ${data.brand.brand}`;
                 brand_upate.value = ` ${data.brand.brand}`;
                 update_brand_id.value = data.brand.id;
-                update_additional_information.innerHTML = data.brand.additional_information;
+                update_additional_information.innerHTML =
+                    data.brand.additional_information;
                 update_release_date.value = data.brand.release_date;
 
                 // Obtem todos os elementos de radio buttons com o name "category"
@@ -1021,7 +1031,46 @@ function update(id, type) {
             })
             .catch((error) => {
                 console.error("Erro ao buscar a marca: " + error);
-            }
-        );
+            });
     }
 }
+
+// Show Balance Function
+document.getElementById("show_balance").addEventListener("click", function () {
+    // Obtém o elemento do ícone
+    var balance_icon = document.getElementById("balance_icon");
+    let balance_value = document.getElementById("balance_value")
+
+    // Verifica a classe atual do ícone
+    if (balance_icon.classList.contains("fa-eye-slash")) {
+        // Se a classe atual for "fa-eye-slash", muda para "fa-eye"
+        balance_icon.classList.remove("fa-eye-slash", "text-danger");
+        balance_icon.classList.add("fa-eye", "text-primary");
+        balance_value.innerHTML = "R$ 550,00"
+    } else if (balance_icon.classList.contains("fa-eye")) {
+        // Caso contrário, se a classe atual for "fa-eye", muda de volta para "fa-eye-slash"
+        balance_icon.classList.remove("fa-eye", "text-primary");
+        balance_icon.classList.add("fa-eye-slash", "text-danger");
+        balance_value.innerHTML = "R$ ****"
+    }
+});
+// Show sales Function
+document.getElementById("show_sales_value").addEventListener("click", function () {
+
+    var sales_icon = document.getElementById("sales_icon");
+    let sales_value = document.getElementById("sales_value")
+
+    // Verifica a classe atual do ícone
+    if (sales_icon.classList.contains("fa-eye-slash")) {
+        // Se a classe atual for "fa-eye-slash", muda para "fa-eye"
+        sales_icon.classList.remove("fa-eye-slash", "text-danger");
+        sales_icon.classList.add("fa-eye", "text-primary");
+        sales_value.innerHTML = "1200,00"
+    } else if (sales_icon.classList.contains("fa-eye")) {
+        // Caso contrário, se a classe atual for "fa-eye", muda de volta para "fa-eye-slash"
+        sales_icon.classList.remove("fa-eye", "text-primary");
+        sales_icon.classList.add("fa-eye-slash", "text-danger");
+        sales_value.innerHTML = "****"
+    }
+   
+});

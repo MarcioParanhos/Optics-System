@@ -18,13 +18,22 @@
             </div>
             <div class="col-auto ms-auto d-print-none">
                 <div class="btn-list">
+                    <div class="d-flex justify-content-end">
+                        <a href="#" title="Informações Adicionais" class="btn btn-md" data-bs-toggle="modal" data-bs-target="#information_modal">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-question-mark" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M8 8a3.5 3 0 0 1 3.5 -3h1a3.5 3 0 0 1 3.5 3a3 3 0 0 1 -2 3a3 4 0 0 0 -2 4"></path>
+                                <path d="M12 19l0 .01"></path>
+                            </svg>
+                        </a>
+                    </div>
                     <a href="#" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal" data-bs-target="#new_brand_modal">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                             <path d="M12 5l0 14" />
                             <path d="M5 12l14 0" />
                         </svg>
-                        ADICIONAR MARCA
+                        <span>ADICIONAR MARCA</span>
                     </a>
                     <a href="#" class="btn btn-primary d-sm-none btn-icon" data-bs-toggle="modal" data-bs-target="#new_brand_modal" aria-label="Create new report">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -44,7 +53,7 @@
         <div class="card">
             <div class="card-body shadow">
                 <div id="table-default" class="table-responsive">
-                    <table id="basicTable" class="table table-sm nowrap">
+                    <table id="basicTable" class="table table-sm nowrap table-hover">
                         <thead>
                             <tr>
                                 <th class="text-center">ID</th>
@@ -58,24 +67,58 @@
                         </thead>
                         <tbody class="table-tbody">
                             @foreach ($brands as $brand)
-                            <tr class="table_subheader">
-                                <td class="text-center">{{ $brand->id }}</td>
-                                <td class="text-center">{{ $brand->brand }}</td>
-                                <td class="text-center">{{ $brand->category }}</td>
-                                <td class="text-center"><span class="badge bg-teal">25</span></td>
+                            <tr class="">
+                                <td class="text-center table_subheader">{{ $brand->id }}</td>
+                                <td class="text-center table_subheader">{{ $brand->brand }}</td>
+                                <td class="text-center table_subheader">{{ $brand->category }}</td>
+                                <td class="text-center table_subheader"><span class="badge bg-teal">25</span></td>
                                 @if ( $brand->situation == 'Ativo')
-                                <td class="text-center"><span class="badge bg-green">Ativo</span></td>
+                                <td class="text-center table_subheader"><span class="badge bg-green">Ativo</span></td>
                                 @else
-                                <td class="text-center"><span class="badge bg-danger">Inativo</span></td>
+                                <td class="text-center table_subheader"><span class="badge bg-danger">Inativo</span></td>
                                 @endif
-                                <td class="text-center">{{ \Carbon\Carbon::parse($brand->release_date)->format('d/m/Y') }}</td>
-                                <td class="text-center">
-                                    <a title="Editar" data-bs-toggle="tooltip" class="btn btn-primary btn-sm rounded p-1" onclick="update('<?php echo $brand->id; ?>', 'brand')">
+                                <td class="text-center table_subheader">{{ \Carbon\Carbon::parse($brand->release_date)->format('d/m/Y') }}</td>
+                                <td class="text-center ">
+                                    <!-- <a title="Editar" data-bs-toggle="tooltip" class="btn btn-primary btn-sm rounded p-1" onclick="update('<?php echo $brand->id; ?>', 'brand')">
                                         <i class="fa-solid fa-pen-to-square"></i>
                                     </a>
                                     <a title="Excluir" data-bs-toggle="tooltip" class="btn btn-danger btn-sm rounded p-1" onclick="destroy('<?php echo $brand->id; ?>', 'brand')">
                                         <i class="fa-solid fa-trash"></i>
-                                    </a>
+                                    </a> -->
+                                    <div class="dropdown">
+                                        <a href="#" class="btn-action" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-dots-vertical" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
+                                                <path d="M12 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
+                                                <path d="M12 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
+                                            </svg>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-end">
+                                            <a href="#" onclick="update('<?php echo $brand->id; ?>', 'brand')" class="dropdown-item">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-dots" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                    <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
+                                                    <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"></path>
+                                                    <path d="M9 14v.01"></path>
+                                                    <path d="M12 14v.01"></path>
+                                                    <path d="M15 14v.01"></path>
+                                                </svg>
+                                                <span>&nbsp;Editar</span>
+                                            </a>
+                                            <a href="#" onclick="destroy('<?php echo $brand->id; ?>', 'brand')" class="dropdown-item text-danger">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                    <path d="M4 7l16 0"></path>
+                                                    <path d="M10 11l0 6"></path>
+                                                    <path d="M14 11l0 6"></path>
+                                                    <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+                                                    <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+                                                </svg>
+                                                <span>&nbsp;Deletar</span>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                             @endforeach
@@ -176,9 +219,29 @@
                             <div class="mb-3">
                                 <label class="form-label" for="situation">SITUAÇÃO</label>
                                 <select id="situation" name="situation" class="form-select" required>
-                                    <option value="Ativo">Ativo</option>
-                                    <option value="Inativo">Inativo</option>
+                                    <option>Selecione...</option>
+                                    <option value="Ativo">ATIVO</option>
+                                    <option value="Inativo">INATIVO</option>
                                 </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="mb-3">
+                                <label class="form-label" for="situation">Promoção</label>
+                                <select id="" name="" class="form-select" required>
+                                    <option>Selecione...</option>
+                                    <option value="">SIM</option>
+                                    <option value="">NÃO</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="mb-3">
+                                <label class="form-label">Valor do desconto</label>
+                                <div class="input-group mb-2">
+                                    <span class="input-group-text">%</span>
+                                    <input type="text" class="form-control" placeholder="" autocomplete="off">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -323,8 +386,8 @@
                             <div class="mb-3">
                                 <label class="form-label" for="situation">SITUAÇÃO</label>
                                 <select id="situation" name="situation" class="form-select" required>
-                                    <option value="Ativo">Ativo</option>
-                                    <option value="Inativo">Inativo</option>
+                                    <option value="Ativo">ATIVO</option>
+                                    <option value="Inativo">INATIVO</option>
                                 </select>
                             </div>
                         </div>
@@ -399,6 +462,36 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Info Modal -->
+<div class="modal modal-blur fade" id="information_modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Recursos Principais da Página:</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body justify">
+
+                <strong>Adicionar Marca:<br></strong>A funcionalidade mais fundamental da página é a capacidade de adicionar novas marcas de armações de óculos ao sistema. Basta preencher os detalhes relevantes, como o nome da marca, descrição, país de origem, e, se aplicável, um logotipo ou imagem representativa da marca. Isso torna mais fácil para sua equipe e seus clientes identificarem as diferentes opções disponíveis.
+
+                <strong><br>Editar e Atualizar:<br></strong> À medida que novas coleções são lançadas ou informações sobre uma marca mudam, você pode facilmente editar e atualizar os detalhes da marca. Isso garante que sua base de dados esteja sempre atualizada e precisa.
+
+                <strong><br>Visualização Detalhada:<br></strong> Ao clicar em uma marca específica, você pode acessar informações detalhadas, como modelos de armações disponíveis, preços, histórico de vendas e outros detalhes relevantes. Essa visualização detalhada ajuda na tomada de decisões informadas sobre quais marcas promover e como gerenciar seu estoque.
+
+                <strong><br>Integração com o Sistema de Vendas:<br></strong> A página de gerenciamento de marcas de armações de óculos está integrada ao nosso sistema de vendas, o que significa que as atualizações feitas aqui são refletidas automaticamente no processo de vendas. Isso evita erros de estoque e garante que seus clientes obtenham informações precisas sobre os produtos.
+
+                <strong><br>Segurança:<br></strong> A segurança é uma prioridade, e a página de gerenciamento de marcas é protegida por medidas de segurança avançadas para garantir que suas informações confidenciais estejam sempre protegidas.
+
+                <strong><br><br>Em resumo, nossa página de gerenciamento de marcas de armações de óculos é uma ferramenta poderosa para simplificar e otimizar suas operações no setor óptico. Ela coloca você no controle completo das informações das marcas que você oferece, permitindo uma gestão eficaz, melhor tomada de decisões e, em última análise, uma experiência de compra aprimorada para seus clientes. Se você deseja manter sua loja ou empresa no topo do mercado de óculos, nossa página de gerenciamento de marcas é a solução ideal.
+
+                    Se você tiver alguma dúvida ou precisar de assistência para começar a usar essa página, nossa equipe de suporte está à disposição para ajudar a tornar sua experiência de gerenciamento de marcas mais fácil e eficaz.</strong>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn " data-bs-dismiss="modal">Fechar</button>
             </div>
         </div>
     </div>

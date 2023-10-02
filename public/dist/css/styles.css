@@ -20,17 +20,30 @@ label {
     letter-spacing: 0.04em;
     line-height: 1rem;
 }
+.justify {
+    text-align: justify;
+}
 /* Global Variables */
 .UperCase {
     text-transform: uppercase !important;
 }
 /*Tables */
 .table_subheader {
-    font-size: 0.75rem !important;
+    font-size: 0.70rem !important;
     text-transform: uppercase;
     letter-spacing: 0.04em;
     line-height: 1rem;
 }
+.btn-action {
+    color: var(--primary) !important;
+    height: auto !important;
+    display: inline-block !important;
+}
+.ocult-info-btn {
+    width: 4% !important;
+    
+}
+
 /* Borders */
 .border_top_success {
     border-top: 2px solid var(--green) !important;
@@ -43,12 +56,19 @@ label {
 }
 /* General Buttons */
 .btn-primary {
-    font-size: 0.75rem !important;
+    font-size: 0.7rem !important;
     background-color: var(--primary) !important;
     transition: 0.4s !important;
+    padding: 6px !important;
 }
 .btn-primary:hover {
     background-color: var(--primaryHover) !important;
+}
+.btn .icon {
+    margin: 0 !important;
+}
+.btn-md {
+    padding: 4px !important;
 }
 
 /* DATATABLES */

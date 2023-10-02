@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FrameController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\DailyCashierController;
+use App\Http\Controllers\UserController;
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -31,6 +32,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/brands/update', [BrandController::class, 'update'])->name('brands.update');
     // Daily cashiers
     Route::get('/daily_cashiers', [DailyCashierController::class, 'index'])->name('daily_cashiers.show');
+    //Users
+    Route::get('/users', [UserController::class, 'index'])->name('users.show');
 
 });
 

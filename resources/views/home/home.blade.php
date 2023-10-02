@@ -19,6 +19,15 @@
             <!-- Page title actions -->
             <div class="col-auto ms-auto d-print-none">
                 <div class="btn-list">
+                    <div class="d-flex justify-content-end">
+                        <a href="#" title="Informações Adicionais" class="btn btn-md " data-bs-toggle="modal" data-bs-target="#information_modal">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-question-mark" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M8 8a3.5 3 0 0 1 3.5 -3h1a3.5 3 0 0 1 3.5 3a3 3 0 0 1 -2 3a3 4 0 0 0 -2 4"></path>
+                                <path d="M12 19l0 .01"></path>
+                            </svg>
+                        </a>
+                    </div>
                     <a href="#" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal" data-bs-target="#modal-report">
                         <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -26,7 +35,7 @@
                             <path d="M12 5l0 14" />
                             <path d="M5 12l14 0" />
                         </svg>
-                        NOVA VENDA
+                        <span>NOVA VENDA</span>
                     </a>
                     <a href="#" class="btn btn-primary d-sm-none btn-icon" data-bs-toggle="modal" data-bs-target="#modal-report" aria-label="Create new report">
                         <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
@@ -45,6 +54,38 @@
 <div class="page-body">
     <div class="container-xl">
         <div class="row row-deck row-cards">
+            <div class="col-sm-6 col-lg-3">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="subheader">Balanço do caixa</div>
+                            <div class="ms-auto lh-1">
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle text-muted" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Last 7 days</a>
+                                    <div class="dropdown-menu dropdown-menu-end">
+                                        <a class="dropdown-item active" href="#">Last 7 days</a>
+                                        <a class="dropdown-item" href="#">Last 30 days</a>
+                                        <a class="dropdown-item" href="#">Last 3 months</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-baseline">
+                            <div class="h1 mb-3 me-2">R$ 1.200</div>
+                            <div class="me-auto">
+                                <span class="text-green d-inline-flex align-items-center lh-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon ms-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M3 17l6 -6l4 4l8 -8" />
+                                        <path d="M14 7l7 0l0 7" />
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div id="chart-new-clients" class="chart-sm"></div>
+                    </div>
+                </div>
+            </div>
             <div class="col-sm-6 col-lg-3">
                 <div class="card shadow">
                     <div class="card-body">
@@ -82,38 +123,6 @@
                 <div class="card shadow">
                     <div class="card-body">
                         <div class="d-flex align-items-center">
-                            <div class="subheader">Balanço do caixa</div>
-                            <div class="ms-auto lh-1">
-                                <div class="dropdown">
-                                    <a class="dropdown-toggle text-muted" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Last 7 days</a>
-                                    <div class="dropdown-menu dropdown-menu-end">
-                                        <a class="dropdown-item active" href="#">Last 7 days</a>
-                                        <a class="dropdown-item" href="#">Last 30 days</a>
-                                        <a class="dropdown-item" href="#">Last 3 months</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-baseline">
-                            <div class="h1 mb-3 me-2">R$ 1.200</div>
-                            <div class="me-auto">
-                                <span class="text-green d-inline-flex align-items-center lh-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon ms-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <path d="M3 17l6 -6l4 4l8 -8" />
-                                        <path d="M14 7l7 0l0 7" />
-                                    </svg>
-                                </span>
-                            </div>
-                        </div>
-                        <div id="chart-new-clients" class="chart-sm"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-3">
-                <div class="card shadow">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
                             <div class="subheader">Crediarios Ativos</div>
                         </div>
                         <div class="d-flex align-items-baseline">
@@ -143,12 +152,10 @@
                                             SALDO NO CAIXA - <?php echo date('d/m/Y'); ?>
                                         </div>
                                         <div class="d-flex justify-content-between align-items-center text-muted subheader">
-                                            <span>R$ 575,00</span>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-eye" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
-                                                <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"></path>
-                                            </svg>
+                                            <span id="balance_value">R$ ****</span>
+                                            <button id="show_balance" title="Mostrar" data-bs-toggle="tooltip" class="btn ocult-info-btn">
+                                                <i id="balance_icon" class="text-danger far fa-eye-slash"></i>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -172,15 +179,13 @@
                                     </div>
                                     <div class="col">
                                         <div class="font-weight-medium subheader">
-                                        Vendas totais - <?php echo date('d/m/Y'); ?>
+                                            Vendas totais - <?php echo date('d/m/Y'); ?>
                                         </div>
                                         <div class="d-flex justify-content-between align-items-center text-muted subheader">
-                                            132 VENDAS - R$ 1500,00
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-eye" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
-                                                <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"></path>
-                                            </svg>
+                                            <span>132 VENDAS - R$ <span id="sales_value">****</span></span>
+                                            <button id="show_sales_value" title="Mostrar" data-bs-toggle="tooltip" class="btn ocult-info-btn">
+                                                <i id="sales_icon" class="text-danger far fa-eye-slash"></i>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -239,8 +244,18 @@
             </div>
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header d-flex justify-content-between">
                         <h6 class="card-title">ULTIMAS VENDAS</h6>
+                        <a title="Visão Geral" data-bs-toggle="tooltip" class="btn btn-md btn-info" href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+                                <path d="M11 17h-5v-14h-2"></path>
+                                <path d="M6 5l14 1l-.718 5.023m-6.282 1.977h-7"></path>
+                                <path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
+                                <path d="M20.2 20.2l1.8 1.8"></path>
+                            </svg>
+                        </a>
                     </div>
                     <div class="table-responsive shadow">
                         <table id="table" class="table card-table table-vcenter text-nowrap table-hover">
@@ -279,4 +294,9 @@
     let activeHome = document.getElementById("activeHome")
     activeHome.classList.add('active')
 </script>
+<script>
+ 
+</script>
+
 @endsection
+

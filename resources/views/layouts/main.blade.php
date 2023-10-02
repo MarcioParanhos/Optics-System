@@ -375,7 +375,8 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li id="activeBrand" class="nav-item  dropdown">
+                                @if ($loggedInUser->profile->id == 1)
+                                <li id="activeAdministration" class="nav-item  dropdown">
                                     <a class="nav-link dropdown-toggle" href="#navbar-layout" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false">
                                         <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/layout-2 -->
                                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-settings-cog" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -396,10 +397,84 @@
                                     <div class="dropdown-menu">
                                         <div class="dropdown-menu-columns">
                                             <div class="dropdown-menu-column">
-
+                                                <a class="dropdown-item" href="{{ route('users.show') }}">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                        <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+                                                        <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                                        <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
+                                                    </svg>
+                                                    <span class="m-1 subheader">Usuários</span>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
+                                </li>
+                                @endif
+                                <li id="activeDailyCashiers" class="m-1 nav-item">
+                                    <div class="nav-item dropdown">
+                                        <a href="#" class="nav-link-icon d-md-none d-lg-inline-block" data-bs-toggle="dropdown" aria-label="Open user menu">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chart-bar" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                <path d="M3 12m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path>
+                                                <path d="M9 8m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path>
+                                                <path d="M15 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path>
+                                                <path d="M4 20l14 0"></path>
+                                            </svg>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                            <a href="#" class="subheader dropdown-item">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                    <path d="M11.5 21h-5.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4.5"></path>
+                                                    <path d="M16 3v4"></path>
+                                                    <path d="M8 3v4"></path>
+                                                    <path d="M4 11h16"></path>
+                                                    <path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
+                                                    <path d="M20.2 20.2l1.8 1.8"></path>
+                                                </svg>
+                                                <span class="m-1">JANEIRO</span>
+                                            </a>
+                                            <a href="#" class="subheader dropdown-item">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                    <path d="M11.5 21h-5.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4.5"></path>
+                                                    <path d="M16 3v4"></path>
+                                                    <path d="M8 3v4"></path>
+                                                    <path d="M4 11h16"></path>
+                                                    <path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
+                                                    <path d="M20.2 20.2l1.8 1.8"></path>
+                                                </svg>
+                                                <span class="m-1">FEVEREIRO</span>
+                                            </a>
+                                            <a href="#" class="subheader dropdown-item">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                    <path d="M11.5 21h-5.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4.5"></path>
+                                                    <path d="M16 3v4"></path>
+                                                    <path d="M8 3v4"></path>
+                                                    <path d="M4 11h16"></path>
+                                                    <path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
+                                                    <path d="M20.2 20.2l1.8 1.8"></path>
+                                                </svg>
+                                                <span class="m-1">MARÇO</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li id="activeDailyCashiers" class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-hexagon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                <path d="M12 13a3 3 0 1 0 0 -6a3 3 0 0 0 0 6z"></path>
+                                                <path d="M6.201 18.744a4 4 0 0 1 3.799 -2.744h4a4 4 0 0 1 3.798 2.741"></path>
+                                                <path d="M19.875 6.27c.7 .398 1.13 1.143 1.125 1.948v7.284c0 .809 -.443 1.555 -1.158 1.948l-6.75 4.27a2.269 2.269 0 0 1 -2.184 0l-6.75 -4.27a2.225 2.225 0 0 1 -1.158 -1.948v-7.285c0 -.809 .443 -1.554 1.158 -1.947l6.75 -3.98a2.33 2.33 0 0 1 2.25 0l6.75 3.98h-.033z"></path>
+                                            </svg>
+                                        </span>
+                                        <!-- <span class="nav-link-title subheader">Caixa Diário</span> -->
+                                    </a>
                                 </li>
                             </ul>
                             <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">

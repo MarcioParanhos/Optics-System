@@ -26,6 +26,15 @@
             </div> -->
             <div class="col-auto ms-auto d-print-none">
                 <div class="btn-list">
+                    <div class="d-flex justify-content-end">
+                        <a href="#" title="Informações Adicionais" class="btn btn-md" data-bs-toggle="modal" data-bs-target="#information_modal">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-question-mark" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M8 8a3.5 3 0 0 1 3.5 -3h1a3.5 3 0 0 1 3.5 3a3 3 0 0 1 -2 3a3 4 0 0 0 -2 4"></path>
+                                <path d="M12 19l0 .01"></path>
+                            </svg>
+                        </a>
+                    </div>
                     <a id="btn_cashier" href="#" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal" data-bs-target="#new_moviment_modal">
                         <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -33,7 +42,7 @@
                             <path d="M12 5l0 14" />
                             <path d="M5 12l14 0" />
                         </svg>
-                        NOVO LANÇAMENTO
+                        <span>NOVO LANÇAMENTO</span>
                     </a>
                     <a href="#" class="btn btn-primary d-sm-none btn-icon" data-bs-toggle="modal" data-bs-target="#modal-report" aria-label="Create new report">
                         <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
@@ -115,7 +124,7 @@
                         <h6 class="card-title UperCase">Movimento Diário</h6>
                     </div>
                     <div class="table-responsive shadow">
-                        <table id="table" class="table table-sm card-table table-vcenter text-nowrap table-hover">
+                        <table id="basicTable" class="table table-sm card-table table-vcenter text-nowrap table-hover">
                             <thead>
                                 <tr>
                                     <th class="text-center">ID</th>
@@ -127,38 +136,53 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="table_subheader">
-                                    <td class="text-center"><span class="text-muted">002</span></td>
-                                    <td class="text-center">22/09/2023</td>
-                                    <td class="text-center">ABERTURA DE CAIXA</td>
-                                    <td class="text-center">
+                                <tr class="">
+                                    <td class="text-center table_subheader"><span class="text-muted">002</span></td>
+                                    <td class="text-center table_subheader">22/09/2023</td>
+                                    <td class="text-center table_subheader">ABERTURA DE CAIXA</td>
+                                    <td class="text-center table_subheader">
                                         <span class="text-green"><strong>ENTRADA</strong></span>
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-caret-up-filled" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                             <path d="M11.293 7.293a1 1 0 0 1 1.32 -.083l.094 .083l6 6l.083 .094l.054 .077l.054 .096l.017 .036l.027 .067l.032 .108l.01 .053l.01 .06l.004 .057l.002 .059l-.002 .059l-.005 .058l-.009 .06l-.01 .052l-.032 .108l-.027 .067l-.07 .132l-.065 .09l-.073 .081l-.094 .083l-.077 .054l-.096 .054l-.036 .017l-.067 .027l-.108 .032l-.053 .01l-.06 .01l-.057 .004l-.059 .002h-12c-.852 0 -1.297 -.986 -.783 -1.623l.076 -.084l6 -6z" stroke-width="0" fill="#2fb344"></path>
                                         </svg>
                                     </td>
-                                    <td class="text-center">R$ 500,00</td>
+                                    <td class="text-center table_subheader">R$ 500,00</td>
                                     <td class="text-center">
-                                        <a title="Editar" data-bs-toggle="tooltip" href="" class="btn btn-primary btn-sm rounded p-1"><i class="fa-solid fa-pen-to-square"></i></a>
-                                        <a title="Excluir" data-bs-toggle="tooltip" class="btn btn-danger btn-sm rounded p-1" data-bs-toggle="modal" data-bs-target="#delete_modal_daily_cashiers"><i class="fa-solid fa-trash"></i></a>
-                                    </td>
-                                </tr>
-                                <tr class="table_subheader">
-                                    <td class="text-center"><span class="text-muted">001</span></td>
-                                    <td class="text-center">22/09/2023</td>
-                                    <td class="text-center">PAGAMENTO DE MATERIAL DE LIMPEZA</td>
-                                    <td class="text-center">
-                                        <span class="text-danger"><strong>SAÍDA</strong></span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-caret-down-filled" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <path d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" stroke-width="0" fill="#d63939"></path>
-                                        </svg>
-                                    </td>
-                                    <td class="text-center">R$ 125,00</td>
-                                    <td class="text-center">
-                                        <a title="Editar" href="" class="btn btn-primary btn-sm rounded p-1"><i class="fa-solid fa-pen-to-square"></i></a>
-                                        <a title="Excluir" class="btn btn-danger btn-sm rounded p-1" data-bs-toggle="modal" data-bs-target="#delete_modal_daily_cashiers"><i class="fa-solid fa-trash"></i></a>
+                                        <div class="dropdown">
+                                            <a href="#" class="btn-action" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-dots-vertical" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                    <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
+                                                    <path d="M12 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
+                                                    <path d="M12 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
+                                                </svg>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-end">
+                                                <a href="#" class="dropdown-item">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-dots" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                        <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
+                                                        <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"></path>
+                                                        <path d="M9 14v.01"></path>
+                                                        <path d="M12 14v.01"></path>
+                                                        <path d="M15 14v.01"></path>
+                                                    </svg>
+                                                    <span>&nbsp;Editar</span>
+                                                </a>
+                                                <a href="#" class="dropdown-item text-danger">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                        <path d="M4 7l16 0"></path>
+                                                        <path d="M10 11l0 6"></path>
+                                                        <path d="M14 11l0 6"></path>
+                                                        <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>
+                                                        <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>
+                                                    </svg>
+                                                    <span>&nbsp;Deletar</span>
+                                                </a>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             </tbody>
