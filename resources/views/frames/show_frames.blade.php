@@ -129,12 +129,21 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="mb-3 col-lg-6">
-                            <label class="form-label" for="brand">MARCA</label>
-                            <input id="brand" name="brand" type="text" class="form-control" name="example-text-input" placeholder="Informe o nome da marca" required>
+                            <div class="form-floating">
+                                <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                                    <option>Selecione...</option>
+                                    @foreach ($brands as $brand)
+                                    <option value="{{ $brand->id }}">{{ $brand->brand }}</option>
+                                    @endforeach
+                                </select>
+                                <label for="floatingSelect" class="text-dark">MARCA</label>
+                            </div>
                         </div>
                         <div class="mb-3 col-lg-6">
-                            <label class="form-label" for="brand">REFERÊNCIA</label>
-                            <input id="brand" name="brand" type="text" class="form-control" name="example-text-input" placeholder="Informe o nome da marca" required>
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="floating-input" value="" autocomplete="off">
+                                <label for="floating-input" class="text-dark">Referência da armação</label>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -198,9 +207,7 @@
         </div>
     </div>
 </div>
+<!-- js files for this page -->
+<script src="{{ asset('dist/js/frames.js') }}"></script>
 
-<script>
-    let activeFrame = document.getElementById("activeFrame")
-    activeFrame.classList.add('active')
-</script>
 @endsection
