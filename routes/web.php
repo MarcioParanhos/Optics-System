@@ -9,9 +9,6 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\DailyCashierController;
 use App\Http\Controllers\UserController;
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
 
@@ -24,6 +21,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     //Frames
     Route::get('/frames', [FrameController::class, 'index'])->name('frames.show');
+    Route::post('/frames/create', [FrameController::class, 'create'])->name('frames.create');
+    Route::post('/frames/update', [FrameController::class, 'update'])->name('frames.update');
+    Route::get('/frames/select/{id}', [FrameController::class, 'select'])->name('frames.select');
     //Brands
     Route::get('/brands', [BrandController::class, 'index'])->name('brands.show');
     Route::post('/brands/create', [BrandController::class, 'create'])->name('brands.create');

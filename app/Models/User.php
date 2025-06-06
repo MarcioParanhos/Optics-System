@@ -47,4 +47,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Profile::class);
     }
+
+    public function companie()
+    {
+        return $this->belongsTo(Profile::class);
+    }
 }

@@ -58,14 +58,12 @@
                         </div> -->
                         <div class="d-none d-md-flex">
                             <a href="?theme=dark" class="nav-link px-0 hide-theme-dark" title="Ativar modo escuro" data-bs-toggle="tooltip" data-bs-placement="bottom">
-                                <!-- Download SVG icon from http://tabler-icons.io/i/moon -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                     <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
                                 </svg>
                             </a>
                             <a href="?theme=light" class="nav-link px-0 hide-theme-light" title="Ativar modo claro" data-bs-toggle="tooltip" data-bs-placement="bottom">
-                                <!-- Download SVG icon from http://tabler-icons.io/i/sun -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                     <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
@@ -74,7 +72,6 @@
                             </a>
                             <div class="nav-item dropdown d-none d-md-flex me-3">
                                 <a href="#" class="nav-link px-0" data-bs-toggle="dropdown" tabindex="-1" aria-label="Show notifications">
-                                    <!-- Download SVG icon from http://tabler-icons.io/i/bell -->
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                         <path d="M10 5a2 2 0 1 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" />
@@ -178,7 +175,7 @@
                                 <span class="avatar avatar-sm" style="background-image: url(./static/avatars/000m.jpg)"></span>
                                 <div class="d-none d-xl-block ps-2">
                                     <div class="subheader">{{ $loggedInUser->name }}</div>
-                                    <div class="mt-1 small text-muted">{{ $loggedInUser->profile->profile }}</div>
+                                    <div class="mt-1 small text-muted">{{ $loggedInUser->companie->name }}</div>
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
@@ -515,8 +512,9 @@
                         <div class="col-lg-auto ms-lg-auto">
                             <ul class="list-inline list-inline-dots mb-0">
                                 <li class="list-inline-item">
+                                    Developed by 
                                     <a href="https://github.com/MarcioParanhos" target="_blank" class="link-secondary" rel="noopener">
-                                        Developed by Marcio Paranhos
+                                        Marcio Paranhos
                                     </a>
                                 </li>
                             </ul>
@@ -524,12 +522,9 @@
                         <div class="col-12 col-lg-auto mt-3 mt-lg-0">
                             <ul class="list-inline list-inline-dots mb-0">
                                 <li class="list-inline-item">
-                                    Copyright &copy; 2023
+                                    Copyright &copy; 2025
                                     <a href="." class="link-secondary">Optics System</a>.
                                     Todos os direitos reservados.
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#" class="link-secondary" rel="noopener">v1.0.0</a>
                                 </li>
                             </ul>
                         </div>
@@ -633,7 +628,6 @@
                         Cancel
                     </a>
                     <a href="#" class="btn btn-primary ms-auto" data-bs-dismiss="modal">
-                        <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                             <path d="M12 5l0 14" />
@@ -652,7 +646,6 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 <div class="modal-status bg-info"></div>
                 <div class="modal-body text-center py-4">
-                    <!-- Download SVG icon from http://tabler-icons.io/i/alert-triangle -->
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon mb-2 text-info icon-lg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                         <path d="M10.24 3.957l-8.422 14.06a1.989 1.989 0 0 0 1.7 2.983h16.845a1.989 1.989 0 0 0 1.7 -2.983l-8.423 -14.06a1.989 1.989 0 0 0 -3.4 0z" />

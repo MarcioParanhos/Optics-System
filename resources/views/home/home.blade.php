@@ -90,16 +90,19 @@
                 <div class="card shadow">
                     <div class="card-body">
                         <div class="d-flex align-items-center">
-                            <div class="subheader">Armações Cadastradas</div>
+                            <div class="subheader">Armações Ativas Cadastradas</div>
                         </div>
-                        <div class="h1 mb-3">75</div>
+                        <div class="h1 mb-3">{{ $frames_qty_active }}</div>
                         <div class="d-flex mb-2">
                             <div>
                                 <h5>ESTOQUE</h5>
                             </div>
                         </div>
+                        @php
+                        $percentage = ($frames_qty_active / ($frames_qty_active+$frames_qty_inative)) * 100;
+                        @endphp
                         <div class="progress progress-sm">
-                            <div class="progress-bar bg-primary" style="width: 75%" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="75% Complete">
+                            <div class="progress-bar bg-primary" style='width: {{ $percentage }}%' role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" aria-label="75% Complete">
                                 <span class="visually-hidden">75% Complete</span>
                             </div>
                         </div>
@@ -167,7 +170,7 @@
                             <div class="card-body">
                                 <div class="row align-items-center">
                                     <div class="col-auto">
-                                        <span class="bg-green text-white avatar"><!-- Download SVG icon from http://tabler-icons.io/i/shopping-cart -->
+                                        <span class="bg-green text-white avatar">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                                 <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
@@ -295,8 +298,7 @@
     activeHome.classList.add('active')
 </script>
 <script>
- 
+
 </script>
 
 @endsection
-

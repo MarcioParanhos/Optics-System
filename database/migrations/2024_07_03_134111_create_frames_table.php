@@ -13,16 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('brands', function (Blueprint $table) {
+        Schema::create('frames', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->longText('description');
-            $table->string('category');
+            $table->timestamps();
+            $table->unsignedBigInteger('brand_id')->nullable();
+            $table->string('frame_ref');
+            $table->string('price');
+            $table->string('os')->nullable();
             $table->unsignedBigInteger('situation_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->integer('promotion')->nullable()->default(1);
-            $table->timestamps();
+            $table->longText('description')->nullable();
+            $table->date('release_date_of');
 
+            $table->foreign('brand_id')->references('id')->on('brands');
             $table->foreign('situation_id')->references('id')->on('situations');
             $table->foreign('user_id')->references('id')->on('users');
         });
@@ -35,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('brands');
+        Schema::dropIfExists('frames');
     }
 };

@@ -11,11 +11,13 @@ class BrandController extends Controller
 {
     public function index()
     {
-        $brands = Brand::all();
+        $brands = Brand::withCount('frames')->get();
         $loggedInUser = Auth::user();
+        $title = "Marcas";
         return view('brands.show_brands', [
             'loggedInUser' => $loggedInUser,
             'brands' => $brands,
+            'title' => $title,
         ]);
     }
 
@@ -24,13 +26,11 @@ class BrandController extends Controller
 
         $loggedInUser = Auth::user();
         $brand = new Brand;
-        $brand->brand = $request->brand;
+        $brand->name = $request->brand;
         $brand->category = $request->category;
-        $brand->situation = $request->situation;
+        $brand->situation_id = $request->situation;
         $brand->user_id = $request->user_id;
-        $brand->release_date = $request->release_date;
-        $brand->additional_information = $request->additional_information;
-        $brand->company = $loggedInUser->profile->company;
+        $brand->description = $request->additional_information;
         $brand->save();
         return  redirect()->to(url()->previous())->with('msg', 'success');
     }
@@ -39,29 +39,29 @@ class BrandController extends Controller
     {
         try {
 
-            $brand = Brand::findOrFail($id); // Encontra o registro com o ID especificado
+            $brand = Brand::findOrFail($id);
             if ($brand) {
                 $brand->delete();
                 return  redirect()->to(url()->previous())->with('msg', 'deleted');
             } else {
-                return redirect()->route('brands.show')->with('error');
+                return  redirect()->to(url()->previous())->with('msg', 'error');
             }
         } catch (\Exception $e) {
-            return redirect()->route('brands.show')->with('error', 'Ocorreu um erro ao excluir o Brand: ' . $e->getMessage());
+            return  redirect()->to(url()->previous())->with('msg', 'error');
         }
     }
 
-    public function select($id) {
+    public function select($id)
+    {
 
         $brand = Brand::find($id);
         return response()->json(['brand' => $brand]);
-        
     }
 
-    public function update (Request $request) {
+    public function update(Request $request)
+    {
 
         Brand::findOrFail($request->id)->update($request->all());
         return  redirect()->to(url()->previous())->with('msg', 'updated');
-
     }
 }

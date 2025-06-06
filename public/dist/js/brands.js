@@ -7,9 +7,9 @@ document.addEventListener("DOMContentLoaded", function() {
     function showToast(icon, title) {
         const Toast = Swal.mixin({
             toast: true,
-            position: 'top-end',
+            position: 'center',
             showConfirmButton: false,
-            timer: 3500,
+            timer: 4000,
             timerProgressBar: true,
             didOpen: (toast) => {
                 toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -30,6 +30,8 @@ document.addEventListener("DOMContentLoaded", function() {
             showToast('success', 'Marca adicionada com sucesso!');
         } else if (session_message.value === "updated") {
             showToast('success', 'Marca atualizada com sucesso!');
+        } else if (session_message.value === "error") {
+            showToast('error', 'Erro ao excluir a marca: há armações associadas a esta marca!');
         }
     }
 
