@@ -164,85 +164,81 @@
                                 </div>
                             </div>
                         </div>
-                        <label class="form-label">CATEGORIA</label>
-                        <div class="form-selectgroup-boxes row mb-3">
-                            <div class="col-lg-4">
-                                <label class="form-selectgroup-item">
-                                    <div class="ribbon ribbon-top bg-primary">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="icon icon-tabler icon-tabler-gender-male" width="24"
-                                            height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                            fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <path d="M10 14m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0"></path>
-                                            <path d="M19 5l-5.4 5.4"></path>
-                                            <path d="M19 5h-5"></path>
-                                            <path d="M19 5v5"></path>
-                                        </svg>
-                                    </div>
-                                    <input type="radio" name="category" value="Masculino"
-                                        class="form-selectgroup-input">
-                                    <span class="form-selectgroup-label d-flex align-items-center p-3">
-                                        <span class="me-3">
-                                            <span class="form-selectgroup-check"></span>
-                                        </span>
-                                        <span class="form-selectgroup-label-content">
-                                            <span class="form-selectgroup-title strong mb-1">Masculino</span>
-                                            <span class="d-block text-muted"></span>
-                                        </span>
-                                    </span>
-                                </label>
-                            </div>
-                            <div class="col-lg-4">
-                                <label class="form-selectgroup-item">
-                                    <div class="ribbon ribbon-top bg-primary">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="icon icon-tabler icon-tabler-gender-female" width="24"
-                                            height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                            fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <path d="M12 9m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0"></path>
-                                            <path d="M12 14v7"></path>
-                                            <path d="M9 18h6"></path>
-                                        </svg>
-                                    </div>
-                                    <input type="radio" name="category" value="Feminino"
-                                        class="form-selectgroup-input">
-                                    <span class="form-selectgroup-label d-flex align-items-center p-3">
-                                        <span class="me-3">
-                                            <span class="form-selectgroup-check"></span>
-                                        </span>
-                                        <span class="form-selectgroup-label-content">
-                                            <span class="form-selectgroup-title strong mb-1">Feminino</span>
-                                            <span class="d-block text-muted"></span>
-                                        </span>
-                                    </span>
-                                </label>
-                            </div>
-                            <div class="col-lg-4">
-                                <label class="form-selectgroup-item">
-                                    <div class="ribbon ribbon-top bg-primary">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="icon icon-tabler icon-tabler-gender-agender" width="24"
-                                            height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                            fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <path d="M12 12m-6 0a6 6 0 1 0 12 0a6 6 0 1 0 -12 0"></path>
-                                            <path d="M7 12h11"></path>
-                                        </svg>
-                                    </div>
-                                    <input type="radio" name="category" value="Unissex"
-                                        class="form-selectgroup-input">
-                                    <span class="form-selectgroup-label d-flex align-items-center p-3">
-                                        <span class="me-3">
-                                            <span class="form-selectgroup-check"></span>
-                                        </span>
-                                        <span class="form-selectgroup-label-content">
-                                            <span class="form-selectgroup-title strong mb-1">Unissex</span>
-                                            <span class="d-block text-muted"></span>
-                                        </span>
-                                    </span>
-                                </label>
+                        <label class="form-label subheader">CATEGORIA</label>
+                        <!-- Categoria: Ocupando a largura total para destaque -->
+                        <div class="col-12 mb-3">
+                            <div class="form-selectgroup-boxes row">
+                                <!-- Opção Masculino -->
+                                <div class="col-lg-4">
+                                    <label class="form-selectgroup-item">
+                                        <input type="radio" name="category" value="Masculino"
+                                            class="form-selectgroup-input">
+                                        <div class="form-selectgroup-label d-flex align-items-center p-3">
+                                            <div class="me-3">
+                                                <span class="form-selectgroup-check"></span>
+                                            </div>
+                                            <div class="form-selectgroup-label-content">
+                                                <span class="form-selectgroup-title strong">Masculino</span>
+                                            </div>
+                                            <!-- UX: Ícone da categoria dentro do card -->
+                                            <div class="ms-auto">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="icon icon-tabler icon-tabler-gender-male" width="24"
+                                                    height="24" viewBox="0 0 24 24" stroke-width="2"
+                                                    stroke="currentColor" fill="none" stroke-linecap="round"
+                                                    stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <path d="M10 14m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0" />
+                                                    <path d="M19 5l-5.4 5.4" />
+                                                    <path d="M19 5h-5" />
+                                                    <path d="M19 5v5" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <!-- Repita para Feminino e Unissex, ajustando o value e o título -->
+                                <div class="col-lg-4">
+                                    <label class="form-selectgroup-item">
+                                        <input type="radio" name="category" value="Feminino"
+                                            class="form-selectgroup-input">
+                                        <div class="form-selectgroup-label d-flex align-items-center p-3">
+                                            <div class="me-3"><span class="form-selectgroup-check"></span></div>
+                                            <div class="form-selectgroup-label-content"><span
+                                                    class="form-selectgroup-title strong">Feminino</span></div>
+                                            <div class="ms-auto"><svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="icon icon-tabler icon-tabler-gender-female" width="24"
+                                                    height="24" viewBox="0 0 24 24" stroke-width="2"
+                                                    stroke="currentColor" fill="none" stroke-linecap="round"
+                                                    stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <path d="M12 9m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0" />
+                                                    <path d="M12 14v7" />
+                                                    <path d="M9 18h6" />
+                                                </svg></div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="col-lg-4">
+                                    <label class="form-selectgroup-item">
+                                        <input type="radio" name="category" value="Unissex"
+                                            class="form-selectgroup-input">
+                                        <div class="form-selectgroup-label d-flex align-items-center p-3">
+                                            <div class="me-3"><span class="form-selectgroup-check"></span></div>
+                                            <div class="form-selectgroup-label-content"><span
+                                                    class="form-selectgroup-title strong">Unissex</span></div>
+                                            <div class="ms-auto"><svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="icon icon-tabler icon-tabler-gender-agender" width="24"
+                                                    height="24" viewBox="0 0 24 24" stroke-width="2"
+                                                    stroke="currentColor" fill="none" stroke-linecap="round"
+                                                    stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <path d="M12 12m-6 0a6 6 0 1 0 12 0a6 6 0 1 0 -12 0" />
+                                                    <path d="M7 12h11" />
+                                                </svg></div>
+                                        </div>
+                                    </label>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -294,7 +290,7 @@
                             </div>
                             <div class="col-lg-12">
                                 <div>
-                                    <label class="form-label" for="additional_information">INFORMAÇÕES ADICIONAIS</label>
+                                    <label class="form-label subheader" for="additional_information ">INFORMAÇÕES ADICIONAIS</label>
                                     <textarea id="update_additional_information" name="description" class="form-control" rows="3"></textarea>
                                 </div>
                             </div>
@@ -318,12 +314,14 @@
                                 </svg></span>
                         </a>
                         <button type="submit" class="btn btn-primary ms-auto">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-refresh"
-                                width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
-                                stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4"></path>
-                                <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4"></path>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-device-floppy">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M6 4h10l4 4v10a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2" />
+                                <path d="M12 14m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                                <path d="M14 4l0 4l-6 0l0 -4" />
                             </svg>
                         </button>
                     </div>
@@ -349,85 +347,49 @@
                                 <label for="brand" class="text-dark">NOME DA MARCA</label>
                             </div>
                         </div>
-                        <label class="form-label">CATEGORIA</label>
-                        <div class="form-selectgroup-boxes row mb-3">
-                            <div class="col-lg-4">
-                                <label class="form-selectgroup-item">
-                                    <div class="ribbon ribbon-top bg-primary">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="icon icon-tabler icon-tabler-gender-male" width="24"
-                                            height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                            fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <path d="M10 14m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0"></path>
-                                            <path d="M19 5l-5.4 5.4"></path>
-                                            <path d="M19 5h-5"></path>
-                                            <path d="M19 5v5"></path>
-                                        </svg>
-                                    </div>
-                                    <input type="radio" name="category" value="Masculino"
-                                        class="form-selectgroup-input">
-                                    <span class="form-selectgroup-label d-flex align-items-center p-3">
-                                        <span class="me-3">
-                                            <span class="form-selectgroup-check"></span>
-                                        </span>
-                                        <span class="form-selectgroup-label-content">
-                                            <span class="form-selectgroup-title strong mb-1">Masculino</span>
-                                            <span class="d-block text-muted"></span>
-                                        </span>
-                                    </span>
-                                </label>
-                            </div>
-                            <div class="col-lg-4">
-                                <label class="form-selectgroup-item">
-                                    <div class="ribbon ribbon-top bg-primary">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="icon icon-tabler icon-tabler-gender-female" width="24"
-                                            height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                            fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <path d="M12 9m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0"></path>
-                                            <path d="M12 14v7"></path>
-                                            <path d="M9 18h6"></path>
-                                        </svg>
-                                    </div>
-                                    <input type="radio" name="category" value="Feminino"
-                                        class="form-selectgroup-input">
-                                    <span class="form-selectgroup-label d-flex align-items-center p-3">
-                                        <span class="me-3">
-                                            <span class="form-selectgroup-check"></span>
-                                        </span>
-                                        <span class="form-selectgroup-label-content">
-                                            <span class="form-selectgroup-title strong mb-1">Feminino</span>
-                                            <span class="d-block text-muted"></span>
-                                        </span>
-                                    </span>
-                                </label>
-                            </div>
-                            <div class="col-lg-4">
-                                <label class="form-selectgroup-item">
-                                    <div class="ribbon ribbon-top bg-primary">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="icon icon-tabler icon-tabler-gender-agender" width="24"
-                                            height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                            fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <path d="M12 12m-6 0a6 6 0 1 0 12 0a6 6 0 1 0 -12 0"></path>
-                                            <path d="M7 12h11"></path>
-                                        </svg>
-                                    </div>
-                                    <input type="radio" name="category" value="Unissex" class="form-selectgroup-input"
-                                        checked>
-                                    <span class="form-selectgroup-label d-flex align-items-center p-3">
-                                        <span class="me-3">
-                                            <span class="form-selectgroup-check"></span>
-                                        </span>
-                                        <span class="form-selectgroup-label-content">
-                                            <span class="form-selectgroup-title strong mb-1">Unissex</span>
-                                            <span class="d-block text-muted"></span>
-                                        </span>
-                                    </span>
-                                </label>
+                        <!-- Categoria: Ocupando a largura total para destaque -->
+                        <div class="col-12 mb-3">
+                            <label class="form-label">Categoria</label>
+                            <div class="form-selectgroup-boxes row">
+                                <!-- Opção Masculino -->
+                                <div class="col-lg-4">
+                                    <label class="form-selectgroup-item">
+                                        <input type="radio" name="category" value="Masculino" class="form-selectgroup-input">
+                                        <div class="form-selectgroup-label d-flex align-items-center p-3">
+                                            <div class="me-3">
+                                                <span class="form-selectgroup-check"></span>
+                                            </div>
+                                            <div class="form-selectgroup-label-content">
+                                                <span class="form-selectgroup-title strong">Masculino</span>
+                                            </div>
+                                            <!-- UX: Ícone da categoria dentro do card -->
+                                            <div class="ms-auto">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-gender-male" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 14m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0" /><path d="M19 5l-5.4 5.4" /><path d="M19 5h-5" /><path d="M19 5v5" /></svg>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <!-- Repita para Feminino e Unissex, ajustando o value e o título -->
+                                <div class="col-lg-4">
+                                  <label class="form-selectgroup-item">
+                                      <input type="radio" name="category" value="Feminino" class="form-selectgroup-input">
+                                      <div class="form-selectgroup-label d-flex align-items-center p-3">
+                                          <div class="me-3"><span class="form-selectgroup-check"></span></div>
+                                          <div class="form-selectgroup-label-content"><span class="form-selectgroup-title strong">Feminino</span></div>
+                                          <div class="ms-auto"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-gender-female" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 9m-5 0a5 5 0 1 0 10 0a5 5 0 1 0 -10 0" /><path d="M12 14v7" /><path d="M9 18h6" /></svg></div>
+                                      </div>
+                                  </label>
+                                </div>
+                                <div class="col-lg-4">
+                                  <label class="form-selectgroup-item">
+                                      <input type="radio" name="category" value="Unissex" class="form-selectgroup-input">
+                                      <div class="form-selectgroup-label d-flex align-items-center p-3">
+                                          <div class="me-3"><span class="form-selectgroup-check"></span></div>
+                                          <div class="form-selectgroup-label-content"><span class="form-selectgroup-title strong">Unissex</span></div>
+                                          <div class="ms-auto"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-gender-agender" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-6 0a6 6 0 1 0 12 0a6 6 0 1 0 -12 0" /><path d="M7 12h11" /></svg></div>
+                                      </div>
+                                  </label>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -459,7 +421,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div>
-                                    <label class="form-label" for="additional_information">INFORMAÇÕES ADICIONAIS</label>
+                                    <label class="form-label subheader" for="additional_information">INFORMAÇÕES ADICIONAIS</label>
                                     <textarea id="additional_information" name="additional_information" class="form-control" rows="3"></textarea>
                                 </div>
                             </div>
