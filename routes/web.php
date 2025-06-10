@@ -24,6 +24,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/frames/create', [FrameController::class, 'create'])->name('frames.create');
     Route::post('/frames/update', [FrameController::class, 'update'])->name('frames.update');
     Route::get('/frames/select/{id}', [FrameController::class, 'select'])->name('frames.select');
+    Route::get('/frames/data', [FrameController::class, 'data'])->name('frames.data');
     //Brands
     Route::get('/brands', [BrandController::class, 'index'])->name('brands.show');
     Route::post('/brands/create', [BrandController::class, 'create'])->name('brands.create');
