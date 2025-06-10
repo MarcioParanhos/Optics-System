@@ -62,7 +62,9 @@
                                 <th class="text-center text-white bg-primary">MARCA</th>
                                 <th class="text-center text-white bg-primary">Nº REFERENCIA</th>
                                 <th class="text-center text-white bg-primary">PREÇO</th>
+                                <th class="text-center text-white bg-primary">DATA DE LANÇAMENTO</th>
                                 <th class="text-center text-white bg-primary">SITUAÇÃO</th>
+                                <th class="text-center text-white bg-primary"></th>
                             </tr>
                         </thead>
                     </table>
@@ -200,7 +202,7 @@
 </div>
 <!-- New Frames Modal -->
 <div class="modal modal-blur fade" id="new_frame_modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">NOVA ARMAÇÃO</h5>

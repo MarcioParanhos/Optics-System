@@ -62,29 +62,28 @@ class FrameController extends Controller
 
     public function data()
     {
-        // A sua consulta inicial com Eager Loading está perfeita.
-        $query = Frame::with('brand', 'situation');
+
+        $loggedInUser = Auth::user();
+
+        $query = Frame::whereHas('brand', function ($query) {
+            $query->where('situation_id', 1);
+        })->with('brand', 'situation');
 
         return DataTables::of($query)
             ->editColumn('brand_name', function ($frame) {
-                // Modifica a coluna 'brand' para exibir apenas o nome.
                 return $frame->brand->name ?? 'N/A';
             })
             ->editColumn('ref', function ($frame) {
-                // Modifica a coluna 'ref' para usar 'frame_ref'.
                 return $frame->frame_ref ?? 'N/A';
             })
-            // CORRIGIDO: A coluna 'price' foi adicionada corretamente.
             ->addColumn('price', function ($frame) {
                 return 'R$ ' . number_format($frame->price, 2, ',', '.');
             })
             ->addColumn('situation_badge', function ($frame) {
-                // Verificação de segurança para evitar erro se a situação for nula.
                 if (!$frame->situation) {
                     return '<span class="badge bg-secondary-lt">Indefinido</span>';
                 }
 
-                // Sua lógica de 'match' está ótima.
                 $colorClass = match ($frame->situation->id) {
                     1 => 'bg-green',
                     2 => 'bg-danger',
@@ -93,11 +92,58 @@ class FrameController extends Controller
 
                 return "<span style=\"width: 80px;\" class=\"badge p-1 {$colorClass}\">{$frame->situation->translated_name}</span>";
             })
-            // Adicionamos a coluna 'os' aqui.
             ->addColumn('os', function ($frame) {
                 return $frame->os ?? 'N/A';
             })
-            ->rawColumns(['situation_badge'])
+            ->addColumn('created_at', function ($frame) {
+                if ($frame->created_at) {
+                    return $frame->created_at->format('d/m/Y');
+                }
+                return 'N/A';
+            })
+            ->addColumn('actions', function ($frame) use ($loggedInUser) {
+                $buttons = '<a class="btn btn-primary text-white btn p-1 me-1" href="/frames/select/' . $frame->id . '">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                                    <path d="M21 21l-6 -6" />
+                                </svg>
+                            </a>';
+
+
+                $buttons .= '<a class="btn btn-danger text-white p-1" >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="currentColor"
+                                                    class="icon icon-tabler icons-tabler-filled icon-tabler-trash">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <path
+                                                        d="M20 6a1 1 0 0 1 .117 1.993l-.117 .007h-.081l-.919 11a3 3 0 0 1 -2.824 2.995l-.176 .005h-8c-1.598 0 -2.904 -1.249 -2.992 -2.75l-.005 -.167l-.923 -11.083h-.08a1 1 0 0 1 -.117 -1.993l.117 -.007h16z" />
+                                                    <path
+                                                        d="M14 2a2 2 0 0 1 2 2a1 1 0 0 1 -1.993 .117l-.007 -.117h-4l-.007 .117a1 1 0 0 1 -1.993 -.117a2 2 0 0 1 1.85 -1.995l.15 -.005h4z" />
+                                                </svg>
+                                </a>';
+
+
+                return $buttons;
+            })
+            ->filter(function ($query) {
+                if (request()->has('search') && !empty(request('search')['value'])) {
+                    $searchValue = request('search')['value'];
+
+                    $query->where(function ($q) use ($searchValue) {
+                        $q->where('os', 'like', "%{$searchValue}%")
+                            ->orWhere('frame_ref', 'like', "%{$searchValue}%")
+                            ->orWhere('price', 'like', "%{$searchValue}%")
+                            ->orWhereHas('brand', function ($brandQuery) use ($searchValue) {
+                                $brandQuery->where('name', 'like', "%{$searchValue}%");
+                            })
+                            ->orWhereHas('situation', function ($situationQuery) use ($searchValue) {
+                                $situationQuery->where('name', 'like', "%{$searchValue}%");
+                            });
+                    });
+                }
+            })
+            ->rawColumns(['situation_badge', 'actions'])
             ->make(true);
     }
 }

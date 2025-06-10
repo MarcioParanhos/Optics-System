@@ -82,15 +82,17 @@ $(document).ready(function () {
         ordering: false,
         columns: [
             { data: 'os', name: 'os', searchable: true },
-            { data: 'brand_name', name: 'Marca', searchable: true },
+            { data: 'brand_name', name: 'brand_name', searchable: true },
             { data: 'ref', name: 'Referencia', searchable: true },
             { data: 'price', name: 'Preço', searchable: true },
+            { data: 'created_at', name: 'created_at', searchable: true },
             { 
                 data: 'situation_badge', 
-                name: 'situation_badge', // O nome deve corresponder ao 'data'
+                name: 'situation_badge',
                 orderable: false, 
                 searchable: false 
             },
+            { data: 'actions', name: 'actions', searchable: true },
         ],
         columnDefs: [
             { className: "text-center align-middle", targets: "_all" }
@@ -160,6 +162,6 @@ $(document).ready(function () {
                     },
                 },
             ],
-        lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "TODOS"]] // Adiciona a opção de mostrar todos os registros
+        lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "TODOS"]]
     });
 });
